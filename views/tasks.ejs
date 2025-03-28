@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDIT</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/todo_lists">To-Do lists</a></li>
+            <li><a href="/todo_lists">Edit</a></li>
+            <li><a href="/login">Account</a></li>
+            <form class="search" action="/search" method="post">
+                <label for="search">Search : </label>
+                <input type="text" name="search" maxlength="20">
+                
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        </form>
+        </ul>
+        
+    <h1>Welcome to TO-DO list</h1>
+    </nav>
+    <main>
+        <%if (login) { %>
+        <% if (tasks.length > 0) { %>
+            <% tasks.forEach(task => { %>
+                <div>
+                    <h1><%= task.title %></h1>
+                    <h2><%= task.subject %></h2>
+                    <p><%= task.todo %></p>
+                    <p><%= task.members %></p>
+                    <p>deadline : <%= task.time %></p>
+                    <form action="/edit/<%= task._id %>" method="get">
+                        <button>EDIT</button>
+                    </form>
+                    <form action="/info/<%= task._id %>" method="get">
+                        <button>INFO</button>
+                    </form>
+                    <form action="/delete/<%= task._id %>" method="get">
+                        <button>DELETE</button>
+                    </form>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No tasks found.</p>
+        <% } %>
+        <% }  else { %>
+            <h1>Please login to view your tasks</h1>
+            <% } %>
+    </main>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDIT TO-DO</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/todo_lists">To-Do lists</a></li>
+            <li><a href="/todo_lists">Edit</a></li>
+            <li><a href="/login">Account</a></li>
+            
+        </ul>
+        <h1>Welcome to TO-DO list</h1>
+    </nav>
+    <span>
+        <h3>Which one do you want to edit</h3>
+    </span>
+    <div>
+        <form action="/postedit/<%= tasks._id %>" method="post">
+            <label for="title">Title : </label>
+            <input type="text" name="title" placeholder="food" value="<%= tasks.title %>">
+            <br>
+            <label for="subject">Subject : </label>
+            <input type="text" name="subject" placeholder="breakfast" value="<%= tasks.subject %>">
+            <br>
+            <label for="todo">TO-DO : </label>
+            <textarea type="text" name="todo" placeholder="make breakfast" ><%= tasks.todo %></textarea>
+            <br>
+            <label for="time">Start Time : </label>
+            <input type="datetime-local" name="time" value="<%= tasks.time %>">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit">UPDATE</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO_DO</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/todo_lists">To-Do lists</a></li>
+            <li><a href="/todo_lists">Edit</a></li>
+            <li><a href="/login">Account</a></li>
+            
+        </ul>
+        <h1>Welcome to TO-DO list</h1>
+    </nav>
+    <div>
+        <h1>TITLE : <%= tasks.title %></h1>
+        <h2>SUBJECT : <%= tasks.subject %></h2>
+        <p>THING TO DO : <%= tasks.todo %></p>
+        <p>DEADLINE : <%= tasks.time %></p>
+        <form action="/edit/<%= tasks._id %>" method="get">
+            <button>EDIT</button>
+        </form>
+        <form action="/delete/<%= tasks._id %>" method="get">
+            <button>DELETE</button>
+        </form>
+    </div>
+</body>
+</html>

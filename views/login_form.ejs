@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD TO-DO</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <nav>
+        
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/signup">Signup</a></li>
+            </ul>
+            <h1>Login into your account</h1>
+        
+        
+    </nav>
+    <div>
+        <div>
+            <% if (errMessage) { %>
+                <h3><%= errMessage %></h3>
+            <% } %>
+            <% if (s_Message) { %>
+                <h3><%= s_Message %></h3>
+            <% } %>
+        </div>
+        <form action="postlogin" method="post">
+            <label for="email">Email : </label>
+            <input type="email" name="email" placeholder="test@gamil.com" value="<%= oldInput.email %>">
+            <br>
+            <label for="password">Password : </label>
+            <input type="password" name="password" placeholder="********" value="<%= oldInput.password %>">
+            <br>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit">LOGIN</button>
+            &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp;
+            <a class="forgot" href="/forgot">Forgot Password</a>
+        </form>
+        
+    </div>
+</body>
+</html>

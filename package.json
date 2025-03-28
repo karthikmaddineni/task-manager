@@ -1,0 +1,31 @@
+{
+  "name": "to-do",
+  "version": "1.0.0",
+  "description": "To-do app",
+  "license": "ISC",
+  "author": "karthik maddineni",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon main.js"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.4",
+    "bcryptjs": "^3.0.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^5.0.0",
+    "csurf": "^1.10.0",
+    "ejs": "^3.1.10",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "mangodb": "^1.0.0",
+    "mongodb": "^6.14.2",
+    "mongoose": "^8.12.1",
+    "mysql2": "^3.12.0",
+    "nodemailer": "^6.10.0",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemon": "^3.1.9",
+    "sequelize": "^6.37.5"
+  }
+}

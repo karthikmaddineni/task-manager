@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO_DO</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <%if (login) { %>
+            <li><a href="/todo_lists">To-Do lists</a></li>
+            <li><a href="/todo_lists">Edit</a></li>
+            <% } %>
+            <%if (!login) { %>
+            <li><a href="/login">login</a></li>
+            <li><a href="/signup">signup</a></li>
+            <% } %>
+            <% if (login) { %>
+            <li><a href="/logout">logout</a></li>
+            <% } %>
+        </ul>
+        <h1>Welcome to TO-DO list</h1>
+    </nav>
+    <div>
+        
+        <%if (login) { %>
+            <h1>What would you like to do today for your list</h1>
+            <form action="add" method="get">
+            <button type="submit">ADD</button>
+            <a class ="forgot" href="/add_team">ADD TEAM TASK</a>
+        </form>
+        
+        <form action="todo_lists" method="get">
+            <button type="submit">EDIT</button>
+        </form>
+        <form action="delete" method="get">
+            <button type="submit">DELETE</button>
+        </form>
+        <% }  else { %>
+            <h1>Please login to create or modify your tasks</h1>
+            <% } %>
+    </div>
+</body>
+</html>
